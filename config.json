@@ -1,0 +1,190 @@
+{
+	"prefix": "m!",
+	"commands": {
+		"enabled": "true",
+		"messages": {
+			"running": "{user.tag} ran \"{input.commands.0}\":",
+			"running-unknown": "{user.tag} ran a command:",
+			"error": {
+				"invalid": {
+					"command": "Sorry, but \"{error}\" is an invalid command.",
+					"user": "We didn't recognize that user. Did they leave the server, or did you somehow @ mention them incorrectly, or was there a bug?",
+					"charactername": "Sorry, but \"{error}\" is an invalid character name. Did you put quotes around it? Type `m!help.parameters` for more info.",
+					"character": "We couldn't find a character named {error}. Did you mean \"{guess.name}\"?",
+					"statpage": "We didn't recognize ```\n{error}``` as a statpage. Type `m!help.parameters` for more info."
+				},
+				"missing-parameter": "You forgot to specify the `{error}`!",
+				"generic": "An unknown error occured! Ping the owner if you need help."
+			}
+		},
+		"help": {
+			"enabled": "true",
+			"aliases": ["h"],
+			"parameters": [],
+			"messages": {
+				"documentation": "Displays general help.",
+				"all": "Use `{prefix}help.commands [command]` (`{prefix}h.c`) or `{prefix}help.parameter-types` (`{prefix}h.p`) for detailed help."
+			},
+			"commands": {
+				"enabled": "true",
+				"aliases": ["c", "com", "comm", "command", "coms", "comms"],
+				"parameters": ["[command]"],
+				"messages": {
+					"documentation": "You're using this command right now... I think you know how it works.",
+					"list": {
+						"start": "Here's the list of commands:```",
+						"line": "{prefix}{line}",
+						"end": [
+							"```Use `{prefix}help.commands <command>` for help with a specific command.",
+							"Don't forget that most command names can be shortened (like `help`->`h`)!"
+						]
+					},
+					"subcommands": {
+						"start": "Here's the list of subcommands:```",
+						"line": "{prefix}{line}",
+						"end": "```Don't forget that most command names can be shortened (like `help`->`h`)!"
+					},
+					"usage": {
+						"start": "The usage for {input.commands.1} is:",
+						"parameter-list": "`{output.text}`"
+					}
+				}
+			},
+			"parameter-types": {
+				"enabled": "true",
+				"aliases": ["p", "pt", "param", "parameter", "paramtype", "param-type", "parameter-type", "params", "parameters", "paramtypes", "param-types"],
+				"parameters": [],
+				"messages": {
+					"documentation": "Displays information about types of command inputs, and how to properly use them.",
+					"all": [
+						"Here are all the types of parameters:",
+						"`charactername` is a character's name surrounded by \"quotation marks\". The name can contain letters and numbers, as well as properly-used `'` (apostrophes), `, ` (comma-spaces), and spaces.",
+						"`character` is like `charactername`, but the name has to match an existing character.",
+						"`command` is just a command's name without the `{prefix}` (optional shorthand), like `help.comms`, `chars.create`, etc.",
+						"`statpage` is a set of stats and values, separated by spaces or newlines. An example of a technically-valid format is: ```Dex: +5 perception: 3\nint -1```",
+						"`text` is any amount of text, in any format. Some commands (like `{prefix}roll`) do check your formatting, though.",
+						"`user` is an @ mention of a specific user, or their user ID if you don't want to ping them (turn on developer mode and right click them to get their ID).",
+						"",
+						"If a parameter is surrounded by [square brackets], then it's optional, but if it's surrounded by <triangle brackets>, you have to type it."
+					]
+				}
+			}
+		},
+		"characters": {
+			"enabled": "true",
+			"aliases": ["c", "char", "character", "chars"],
+			"parameters": ["[character]"],
+			"messages": {
+				"start": "Here are the characters you can access:",
+				"line": "- {line.name}",
+				"no-characters": "None! Make a character, loser! Use `{prefix}characters.create \"<charactername>\"` (`{prefix}c.c`)."
+			},
+			"create": {
+				"enabled": "true",
+				"aliases": ["c"],
+				"parameters": ["<charactername>"],
+				"messages": {
+					"documentation": "Creates a character named `charactername`, if that character doesn't already exist.",
+					"error": {
+						"existing-character": "Sorry, but \"{input.characternames.0}\" is already a character's name."
+					},
+					"success": "You've successfully created {output.characters.0.name}!"
+				}
+			},
+			"info": {
+				"enabled": "true",
+				"aliases": ["i", "inform", "information"],
+				"parameters": ["<character>"],
+				"messages": {
+					"documentation": "Displays all users who have access to `character`.",
+					"start": "{input.characters.0.name}'s creator is {output.users.0.tag}. The character's access list includes any admin, as well as:```",
+					"line": "{line.tag}",
+					"end": "```"
+				}
+			},
+			"rename": {
+				"enabled": "true",
+				"aliases": ["r", "rn", "ren"],
+				"parameters": ["<character>", "<charactername>"],
+				"messages": {
+					"documentation": "Renames `character` to `charactername`.",
+					"no-permission": "You don't have permission to rename {input.characters.0.name}.",
+					"already-existed": "There was already a character named \"{input.characternames.0}\".",
+					"success": "{output.characternames.0} has been renamed to \"{output.characternames.1}.\""
+				}
+			},
+			"stats": {
+				"enabled": "true",
+				"aliases": ["s", "stat"],
+				"parameters": ["<character>", "[statpage]"],
+				"messages": {
+					"documentation": "Displays the stats of `character`, or changes them to reflect `statpage`, if `statpage` is specified.",
+					"no-permission": "You don't have permission to change {input.characters.0.name}'s stats.",
+					"updated": {
+						"start": "Successfully changed {input.characters.0.name}'s stats as follows:```",
+						"line": "{line.stat} changed from {line.value} to {line.newvalue}",
+						"end": "```"
+					},
+					"info": {
+						"start": "{input.characters.0.name}'s stats are as follows:```",
+						"line": "{line.stat}: {line.value}",
+						"end": "```"
+					}
+				}
+			},
+			"add-access": {
+				"enabled": "true",
+				"aliases": ["aa", "a-a", "add-acc", "addaccess"],
+				"parameters": ["<character>", "[user]"],
+				"messages": {
+					"documentation": "Adds `user` to `character`'s access list.",
+					"no-permission": "You don't have permission to change {input.characters.0.name}'s modification access.",
+					"already-existed": "{input.users.0.tag} was already on {input.characters.0.name}'s access list.",
+					"success": "Successfully gave modification access for {input.characters.0.name} to {input.users.0.tag}."
+				}
+			},
+			"remove-access": {
+				"enabled": "true",
+				"aliases": ["ra", "r-a", "rem-acc", "remove-acc", "remaccess", "rem-access", "removeaccess"],
+				"parameters": ["<character>", "[user]"],
+				"messages": {
+					"documentation": "Removes `user` from `character`'s access list.",
+					"no-permission": "You don't have permission to change {input.characters.0.name}'s modification access.",
+					"did-not-exist": "{input.users.0.tag} was not on {input.characters.0.name}'s access list.",
+					"success": "Successfully removed modification access for {input.characters.0.name} from {input.users.0.tag}."
+				}
+			}
+		},
+		"roll": {
+			"enabled": "true",
+			"aliases": ["r"],
+			"parameters": ["<text>"],
+			"messages": {
+				"documentation": "Rolls `text` as an anydice.com command.",
+				"wait": "Rolling {input.text}...",
+				"success": "Here's your roll:```{output.text}```",
+				"failure": "Something went wrong. Was your roll valid? Did it take too long?"
+			}
+		},
+		"add-admin": {
+			"enabled": "true",
+			"aliases": ["addadmin"],
+			"parameters": ["<user>"],
+			"messages": {
+				"no-permission": "You aren't the server's owner. Nice try!",
+				"already-existed": "{input.users.0.tag} was already an admin.",
+				"success": "Made {input.users.0.tag} an admin!"
+			}
+		},
+		"remove-admin": {
+			"enabled": "true",
+			"aliases": ["remadmin", "rem-admin", "removeadmin"],
+			"parameters": ["<user>"],
+			"messages": {
+				"no-permission": "You aren't the server's owner. Nice try!",
+				"did-not-exist": "{input.users.0.tag} wasn't an admin.",
+				"success": "Made {input.users.0} a regular user."
+			}
+		}
+	}
+}
