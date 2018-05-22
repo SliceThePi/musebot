@@ -12,7 +12,6 @@
     "anydice": "^1.0.3",
     "didyoumean": "^1.2.1",
     "discord.js": "^11.2.1",
-    "express": "^4.16.2",
     "jsonfile": "^4.0.0",
     "string-format": "^0.5.0"
   }

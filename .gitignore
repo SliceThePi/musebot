@@ -1,6 +1,7 @@
 node_modules/
 characters.json
 login.json
+token.txt
 users.json
 # Logs
 logs

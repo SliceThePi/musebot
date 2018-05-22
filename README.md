@@ -1,2 +1,2 @@
 # musebot
-A Discord bot for roleplay-based servers.
+A Discord bot for D&amp;D-type roleplay-based servers.

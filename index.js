@@ -448,22 +448,15 @@ client.on("message", (message) => {
   	}
   }
 });
-
-let logininfo;
-
+let token;
 try{
-  logininfo = jsonfile.readFileSync("login.json");
-  client.login(logininfo.token);
+  token = fs.readFileSync("token.txt", "UTF8");
+  client.login(token);
 
 } catch(err){
-  console.error("Couldn't login! Did you fill out login.json?");
+  console.error("Couldn't login! Did you fill out token.txt?");
   console.error(err);
-  if(!logininfo){
-    logininfo = {
-      "token": "",
-      "clientid": "",
-      "clientsecret": ""
-    };
-    jsonfile.writeFileSync("login.json", logininfo);
+  if(!token){
+    fs.writeFileSync("token.txt", "", "UTF8");
   }
 }
