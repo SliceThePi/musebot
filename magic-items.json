@@ -25,7 +25,8 @@
     },
     {
         "name": "Iron Sword of the Miner",
-        "description": "An oddly blocky longsword. On a successful hit, always deals 6 damage. Disintegrates completely after exactly 251 attacks (though slashing at something other than a creature counts as two attacks)."
+        "description": "An oddly blocky longsword. On a successful hit, always deals 6 damage. Disintegrates completely after exactly 251 attacks (though slashing at something other than a creature counts as two attacks).",
+        "thumbnail": "https://cdn.discordapp.com/attachments/383693495275094053/450376085356412939/Iron_Sword_of_the_Miner.png"
     },
     {
         "name": "Tunic of Steven",
@@ -41,7 +42,8 @@
     },
     {
         "name": "Heavenly Vape",
-        "description": "A vape carved from the bones of a slain angel. Vape clouds made while using [Heavenly Vape] are semi-solid, like a floating pillow. If a vape ring made by [Heavenly Vape] comes into contact with an creature, the creature must make a contested Dexterity saving throw against the vaper's Charisma; upon a failed save, the creature is Restrained by the vape ring for 1 minute."
+        "description": "A vape carved from the bones of a slain angel. Vape clouds made while using [Heavenly Vape] are semi-solid, like a floating pillow. If a vape ring made by [Heavenly Vape] comes into contact with an creature, the creature must make a contested Dexterity saving throw against the vaper's Charisma; upon a failed save, the creature is Restrained by the vape ring for 1 minute.",
+        "thumbnail": "https://cdn.discordapp.com/attachments/383693495275094053/450374136515002399/Heavenly_Vape.png"
     },
     {
         "name": "Xylophone of One Rat",
@@ -57,10 +59,12 @@
     },
     {
         "name": "Midas's Ring of Craving",
-        "description": "A ring that allows the wearer to transmute up to 10 Copper Coins into Gold Coins for every 24 hours with the ring on. However, the wearer is filled with an insatiable craving for cranberries."
+        "description": "A ring that allows the wearer to transmute up to 10 Copper Coins into Gold Coins for every 24 hours with the ring on. However, the wearer is filled with an insatiable craving for cranberries.",
+        "thumbnail": "https://cdn.discordapp.com/attachments/383693495275094053/450371900380545037/Midass_Ring_of_Craving.png"
     },
     {
         "name": "Dope of Discernment",
-        "description": "A blunt that, when smoked, gives the user the ability to see what would have happened in the next two hours if they had not smoked the blunt."
+        "description": "A blunt that, when smoked, gives the user the ability to see what would have happened in the next two hours if they had not smoked the blunt.",
+        "thumbnail": "https://cdn.discordapp.com/attachments/383693495275094053/450364704162971658/Dope_of_Discernment.png"
     }
 ]
