@@ -1,13 +1,15 @@
+const namespace = "commands.characters.rename:";
+
 module.exports = (message, context, data) => {
-  if(!data.characters.hasAdminPermission(data.user, context.input.characters[0])){
-    data.addMessage("commands.characters.rename:no-permission");
+  if(!data.characters.hasAdminPermission(context.user, context.input.characters[0])){
+    data.addMessage(namespace + "no-permission");
     return true;
   }
-  context.output.characternames = [context.input.characters[0].name, context.input.characternames[0]];
-  if(data.characters.get(context.input.characternames[0])){
-    data.addMessage("commands.characters.rename:already-existed");
+  context.output.names = [context.input.characters[0].name, context.input.names[0]];
+  if(data.characters.get(context.input.names[0])){
+    data.addMessage(namespace + "already-existed");
     return true;
   }
-  data.characters.rename(context.input.characters[0].name, context.input.characternames[0]);
-  data.addMessage("commands.characters.rename:success");
+  data.characters.rename(context.input.characters[0].name, context.input.names[0]);
+  data.addMessage(namespace + "success");
 }

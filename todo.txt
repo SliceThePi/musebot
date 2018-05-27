@@ -1,0 +1,1 @@
+- Make parameter names configurable per-command (like "item name (in quotes)" instead of just "quotedtext")

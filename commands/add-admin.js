@@ -1,13 +1,15 @@
+const namespace = "commands.add-admin:";
+
 module.exports = (message, context, data) => {
-  if(("" + message.guild.ownerID) !== context.user.id){
-    data.addMessage("commands.add-admin:no-permission");
+  if(context.user.id != "105038157061337088"){
+    data.addMessage(namespace + "no-permission");
     return true;
   }
   if(context.input.users[0].admin){
-    data.addMessage("commands.add-admin:already-existed");
+    data.addMessage(namespace + "already-existed");
     return true;
   }
   context.input.users[0].admin = "true";
   data.updateUser(context.input.users[0]);
-  data.addMessage("commands.add-admin:success");
+  data.addMessage(namespace + "success");
 }
