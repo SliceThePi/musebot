@@ -233,6 +233,17 @@
 				"invalid-item": "That's not a valid item. Please type the name exactly as it was typed originally.",
 				"success": "Deleted the item:\n**{output.names.0}**\n*{output.quotedtexts.0}*"
 			}
+		},
+		"item-icon": {
+			"enabled": true,
+			"aliases": ["ii", "itemicon"],
+			"parameters": ["<name>", "<quotedtext>"],
+			"messages": {
+				"documentation": "Gives a thumbnail icon to an item. Requires bot admin permissions.",
+				"no-permission": "You aren't a bot admin. Nice try!",
+				"invalid-item": "That's not a valid item. Please type the name exactly as it was typed originally.",
+				"success": "Added/changed the icon for **{output.names.0}**!"
+			}
 		}
 	}
 }

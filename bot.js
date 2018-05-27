@@ -24,8 +24,14 @@ function messages(namespace) {
   let target = namespace.split(".");
   for (let i = 0; i < target.length && current; i++)
     current = current[target[i]];
+<<<<<<< HEAD
   if (current && current.messages)
     return current.messages;
+=======
+  if (!current || !current.messages)
+    return undefined;
+  return current.messages;
+>>>>>>> 1e6568e6e58782a335398d27cb390a0d7265b2cb
 }
 
 function translate(message, key, input) {
@@ -88,7 +94,10 @@ function reply() {
       "name": name,
       "icon_url": arguments[0].author.avatarURL ? arguments[0].author.avatarURL : undefined
     },
+<<<<<<< HEAD
     "thumbnail": context.thumbnail,
+=======
+>>>>>>> 1e6568e6e58782a335398d27cb390a0d7265b2cb
     "description": msg
   }).setColor(context.color || "#20C020")).catch((err) => console.log(err));
 }
