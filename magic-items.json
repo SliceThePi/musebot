@@ -1,0 +1,66 @@
+[
+    {
+        "name": "Boots of Walking",
+        "description": "You can walk while wearing these boots."
+    },
+    {
+        "name": "Fedora of Fedoras",
+        "description": "A very stylish fedora from which up to 69 fedoras can be pulled. Fedoras created by [Fedora of Fedoras] turn to dust after one minute of use; once one has crumbled, it is replaced back into the original fedora."
+    },
+    {
+        "name": "Pantaloons of the Ass-assin",
+        "description": "A pair of leggings that fully silence up to one fart per hour."
+    },
+    {
+        "name": "Boots with the Fur",
+        "description": "Very stylish boots. When paired with [Apple Bottom Jeans], you may choose to activate both [Apple Bottom Jeans] and [Boots with the Fur] up to once per long rest. When activated, [Apple Bottom Jeans] and [Boots with the Fur] each cause up to 3 nearby creatures to make a contested Wisdom saving throw against your Charisma. Upon a failed throw, a creature must look at either [Apple Bottom Jeans] or [Boots with the Fur] and cannot willingly look away from the item for 5 minutes. Forced breaking of eye contact ends the effect early."
+    },
+    {
+        "name": "Apple Bottom Jeans",
+        "description": "Very stylish pants. When paired with [Boots with the Fur], you may choose to activate both [Apple Bottom Jeans] and [Boots with the Fur] up to once per long rest. When activated, [Apple Bottom Jeans] and [Boots with the Fur] each cause up to 3 nearby creatures to make a contested Wisdom saving throw against your Charisma. Upon a failed throw, a creature must look at either [Apple Bottom Jeans] or [Boots with the Fur] and cannot willingly look away from the item for 5 minutes. Forced breaking of eye contact ends the effect early."
+    },
+    {
+        "name": "Schnoz of the Damned",
+        "description": "A sparkly clown nose. When squeezed, [Schnoz of the Damned] makes an extremely loud honk noise that is only audible to the wearer."
+    },
+    {
+        "name": "Iron Sword of the Miner",
+        "description": "An oddly blocky longsword. On a successful hit, always deals 6 damage. Disintegrates completely after exactly 251 attacks (though slashing at something other than a creature counts as two attacks)."
+    },
+    {
+        "name": "Tunic of Steven",
+        "description": "An oddly boxy leather tunic. While putting [Tunic of Steven] on, you hear the voice of a small child yelling at his mother to exit a room."
+    },
+    {
+        "name": "Locket of Desire",
+        "description": "A heart-shaped locket containing a picture of whatever food the opener is currently craving."
+    },
+    {
+        "name": "Armband",
+        "description": "A poorly-named (but sick-looking) headband that allows the wearer to quickly grow their hair up to a length of 5 feet. As an action, the wearer may control their hair like a badass third arm."
+    },
+    {
+        "name": "Heavenly Vape",
+        "description": "A vape carved from the bones of a slain angel. Vape clouds made while using [Heavenly Vape] are semi-solid, like a floating pillow. If a vape ring made by [Heavenly Vape] comes into contact with an creature, the creature must make a contested Dexterity saving throw against the vaper's Charisma; upon a failed save, the creature is Restrained by the vape ring for 1 minute."
+    },
+    {
+        "name": "Xylophone of One Rat",
+        "description": "A tiny, colorful xylophone that, when played, summons one rat. It's always the same rat, and his name is Neil."
+    },
+    {
+        "name": "Kazoo of Ants",
+        "description": "A garish neon green and mauve kazoo. When played, up to 20 fire ants are blown out of the opposite end of [Kazoo of Ants]. The effect can be used up to once per three hours."
+    },
+    {
+        "name": "Crocodile Shoes",
+        "description": "A pair of rubbery shoes full of holes. Grants a -1 to all Stealth checks, as well as a -2 to Charisma, except for when making Persuasion checks against children. In this case, +2 to Charisma."
+    },
+    {
+        "name": "Midas's Ring of Craving",
+        "description": "A ring that allows the wearer to transmute up to 10 Copper Coins into Gold Coins for every 24 hours with the ring on. However, the wearer is filled with an insatiable craving for cranberries."
+    },
+    {
+        "name": "Dope of Discernment",
+        "description": "A blunt that, when smoked, gives the user the ability to see what would have happened in the next two hours if they had not smoked the blunt."
+    }
+]

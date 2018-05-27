@@ -1,7 +1,7 @@
 {
 	"prefix": "m!",
 	"commands": {
-		"enabled": "true",
+		"enabled": true,
 		"messages": {
 			"running": "{user.tag} ran \"{input.commands.0}\":",
 			"running-unknown": "{user.tag} ran a command:",
@@ -9,8 +9,9 @@
 				"invalid": {
 					"command": "Sorry, but \"{error}\" is an invalid command.",
 					"user": "We didn't recognize that user. Did they leave the server, or did you somehow @ mention them incorrectly, or was there a bug?",
-					"charactername": "Sorry, but \"{error}\" is an invalid character name. Did you put quotes around it? Type `m!help.parameters` for more info.",
-					"character": "We couldn't find a character named {error}. Did you mean \"{guess.name}\"?",
+					"charactername": "Sorry, but {error} is an invalid character name. Did you put quotes around it? Type `m!help.parameters` for more info.",
+					"character": "We couldn't find a character named \"{error}\". Did you mean \"{guess.name}\"?",
+					"quotedtext": "Please use quotes around a `quotedtext`.",
 					"statpage": "We didn't recognize ```\n{error}``` as a statpage. Type `m!help.parameters` for more info."
 				},
 				"missing-parameter": "You forgot to specify the `{error}`!",
@@ -18,7 +19,7 @@
 			}
 		},
 		"help": {
-			"enabled": "true",
+			"enabled": true,
 			"aliases": ["h"],
 			"parameters": [],
 			"messages": {
@@ -26,7 +27,7 @@
 				"all": "Use `{prefix}help.commands [command]` (`{prefix}h.c`) or `{prefix}help.parameter-types` (`{prefix}h.p`) for detailed help."
 			},
 			"commands": {
-				"enabled": "true",
+				"enabled": true,
 				"aliases": ["c", "com", "comm", "command", "coms", "comms"],
 				"parameters": ["[command]"],
 				"messages": {
@@ -51,7 +52,7 @@
 				}
 			},
 			"parameter-types": {
-				"enabled": "true",
+				"enabled": true,
 				"aliases": ["p", "pt", "param", "parameter", "paramtype", "param-type", "parameter-type", "params", "parameters", "paramtypes", "param-types"],
 				"parameters": [],
 				"messages": {
@@ -63,6 +64,7 @@
 						"`command` is just a command's name without the `{prefix}` (optional shorthand), like `help.comms`, `chars.create`, etc.",
 						"`statpage` is a set of stats and values, separated by spaces or newlines. An example of a technically-valid format is: ```Dex: +5 perception: 3\nint -1```",
 						"`text` is any amount of text, in any format. Some commands (like `{prefix}roll`) do check your formatting, though.",
+						"`quotedtext` is a piece of text in between \"quotes\".",
 						"`user` is an @ mention of a specific user, or their user ID if you don't want to ping them (turn on developer mode and right click them to get their ID).",
 						"",
 						"If a parameter is surrounded by [square brackets], then it's optional, but if it's surrounded by <triangle brackets>, you have to type it."
@@ -71,16 +73,16 @@
 			}
 		},
 		"characters": {
-			"enabled": "true",
+			"enabled": true,
 			"aliases": ["c", "char", "character", "chars"],
 			"parameters": ["[character]"],
 			"messages": {
 				"start": "Here are the characters you can access:",
 				"line": "- {line.name}",
-				"no-characters": "None! Make a character, loser! Use `{prefix}characters.create \"<charactername>\"` (`{prefix}c.c`)."
+				"no-characters": "None! Make a character! Use `{prefix}characters.create \"<charactername>\"` (`{prefix}c.c`)."
 			},
 			"create": {
-				"enabled": "true",
+				"enabled": true,
 				"aliases": ["c"],
 				"parameters": ["<charactername>"],
 				"messages": {
@@ -92,7 +94,7 @@
 				}
 			},
 			"info": {
-				"enabled": "true",
+				"enabled": true,
 				"aliases": ["i", "inform", "information"],
 				"parameters": ["<character>"],
 				"messages": {
@@ -103,7 +105,7 @@
 				}
 			},
 			"rename": {
-				"enabled": "true",
+				"enabled": true,
 				"aliases": ["r", "rn", "ren"],
 				"parameters": ["<character>", "<charactername>"],
 				"messages": {
@@ -114,7 +116,7 @@
 				}
 			},
 			"stats": {
-				"enabled": "true",
+				"enabled": true,
 				"aliases": ["s", "stat"],
 				"parameters": ["<character>", "[statpage]"],
 				"messages": {
@@ -133,9 +135,9 @@
 				}
 			},
 			"add-access": {
-				"enabled": "true",
+				"enabled": true,
 				"aliases": ["aa", "a-a", "add-acc", "addaccess"],
-				"parameters": ["<character>", "[user]"],
+				"parameters": ["<character>", "<user>"],
 				"messages": {
 					"documentation": "Adds `user` to `character`'s access list.",
 					"no-permission": "You don't have permission to change {input.characters.0.name}'s modification access.",
@@ -144,9 +146,9 @@
 				}
 			},
 			"remove-access": {
-				"enabled": "true",
+				"enabled": true,
 				"aliases": ["ra", "r-a", "rem-acc", "remove-acc", "remaccess", "rem-access", "removeaccess"],
-				"parameters": ["<character>", "[user]"],
+				"parameters": ["<character>", "<user>"],
 				"messages": {
 					"documentation": "Removes `user` from `character`'s access list.",
 					"no-permission": "You don't have permission to change {input.characters.0.name}'s modification access.",
@@ -156,34 +158,80 @@
 			}
 		},
 		"roll": {
-			"enabled": "true",
+			"enabled": true,
 			"aliases": ["r"],
 			"parameters": ["<text>"],
 			"messages": {
-				"documentation": "Rolls `text` as an anydice.com command.",
+				"documentation": "Rolls `text` as an [AnyDice](https://anydice.com/) command.",
 				"wait": "Rolling {input.text}...",
 				"success": "Here's your roll:```{output.text}```",
 				"failure": "Something went wrong. Was your roll valid? Did it take too long?"
 			}
 		},
 		"add-admin": {
-			"enabled": "true",
+			"enabled": true,
 			"aliases": ["addadmin"],
 			"parameters": ["<user>"],
 			"messages": {
-				"no-permission": "You aren't the server's owner. Nice try!",
+				"documentation": "Adds a global bot admin.",
+				"no-permission": "You aren't SliceThePi. Nice try!",
 				"already-existed": "{input.users.0.tag} was already an admin.",
 				"success": "Made {input.users.0.tag} an admin!"
 			}
 		},
 		"remove-admin": {
-			"enabled": "true",
+			"enabled": true,
 			"aliases": ["remadmin", "rem-admin", "removeadmin"],
 			"parameters": ["<user>"],
 			"messages": {
-				"no-permission": "You aren't the server's owner. Nice try!",
+				"documentation": "Removes a global bot admin.",
+				"no-permission": "You aren't SliceThePi. Nice try!",
 				"did-not-exist": "{input.users.0.tag} wasn't an admin.",
-				"success": "Made {input.users.0} a regular user."
+				"success": "Made {input.users.0.tag} a regular user."
+			}
+		},
+		"reboot": {
+			"enabled": true,
+			"aliases": ["restart"],
+			"parameters": [],
+			"messages": {
+				"documentation": "Shuts down the bot and starts it up automatically.",
+				"no-permission": "You aren't SliceThePi. Nice try!",
+				"success": "Restarting..."
+			}
+		},
+		"shutdown": {
+			"enabled": true,
+			"aliases": ["shut-down", "kys"],
+			"parameters": [],
+			"messages": {
+				"documentation": "Shuts down the bot.",
+				"no-permission": "You aren't SliceThePi. Nice try!",
+				"success": "Shutting down..."
+			}
+		},
+		"magic-item": {
+			"enabled": true,
+			"aliases": ["mi", "i", "magicitem", "item"],
+			"parameters": ["[quotedtext]", "[quotedtext]"],
+			"messages": {
+				"documentation": "Manages magic items. Put nothing for a random magic item, an item name in quotes to search for an item, or an item name and description (both in quotes) to create a new one (requires bot admin permissions).",
+				"start": "Your magic item:\n",
+				"no-items": "There are currently no magic items that exist. Create some!",
+				"success": "**{output.quotedtexts.0}**\n*{output.quotedtexts.1}*",
+				"no-permission": "You aren't a bot admin. Nice try!",
+				"created": "Successfully created \"{input.quotedtexts.0}\"!"
+			}
+		},
+		"delete-item": {
+			"enabled": true,
+			"aliases": ["di", "del-item", "deleteitem", "delitem"],
+			"parameters": ["<quotedtext>"],
+			"messages": {
+				"documentation": "Deletes a magic item. Requires bot admin permissions.",
+				"no-permission": "You aren't a bot admin. Nice try!",
+				"invalid-item": "That's not a valid item. Please type the name exactly as it was typed originally.",
+				"success": "Deleted the item:\n**{output.quotedtexts.0}**\n*{output.quotedtexts.1}*"
 			}
 		}
 	}
