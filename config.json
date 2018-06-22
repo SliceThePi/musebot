@@ -174,7 +174,7 @@
 			"parameters": ["<user>"],
 			"messages": {
 				"documentation": "Adds a global bot admin.",
-				"no-permission": "You aren't SliceThePi. Nice try!",
+				"no-permission": "You aren't a bot owner. Nice try!",
 				"already-existed": "{input.users.0.tag} was already an admin.",
 				"success": "Made {input.users.0.tag} an admin!"
 			}
@@ -185,7 +185,7 @@
 			"parameters": ["<user>"],
 			"messages": {
 				"documentation": "Removes a global bot admin.",
-				"no-permission": "You aren't SliceThePi. Nice try!",
+				"no-permission": "You aren't a bot owner. Nice try!",
 				"did-not-exist": "{input.users.0.tag} wasn't an admin.",
 				"success": "Made {input.users.0.tag} a regular user."
 			}
@@ -196,7 +196,7 @@
 			"parameters": [],
 			"messages": {
 				"documentation": "Shuts down the bot and starts it up automatically.",
-				"no-permission": "You aren't SliceThePi. Nice try!",
+				"no-permission": "You aren't a bot owner. Nice try!",
 				"success": "Restarting..."
 			}
 		},
@@ -206,7 +206,7 @@
 			"parameters": [],
 			"messages": {
 				"documentation": "Shuts down the bot.",
-				"no-permission": "You aren't SliceThePi. Nice try!",
+				"no-permission": "You aren't a bot owner. Nice try!",
 				"success": "Guess I'll perish..."
 			}
 		},

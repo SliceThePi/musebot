@@ -7,17 +7,29 @@ const path = require("path");
 const client = new Discord.Client();
 const formatDate = require("./lib/format-date");
 
-const config = jsonfile.readFileSync("./config.json");
+const configFile = "./config.json";
+if(!fs.existsSync(configFile)){
+  throw new Error("File \"" + configFile + "\" not found! Please re-download it from the official MuseBot repository.");
+}
+const config = jsonfile.readFileSync(configFile);
+
 const characters = new(require("./lib/character-list"))("./characters.json");
 const magicitems = new(require("./lib/magic-item-list"))("./magic-items.json");
 
-let users;
-try {
-  users = jsonfile.readFileSync("./users.json");
+function loadJson(filename, defaultValue) {
+  try {
+    if (fs.existsSync(filename))
+      return jsonfile.readFileSync(filename);
+  }
+  catch (err) {}
+  return defaultValue;
 }
-catch (err) {
-  users = [];
-}
+
+const usersFile = "./users.json";
+const users = loadJson(usersFile, []);
+
+const ownersFile = "./owner-ids.json";
+const owners = loadJson(ownersFile, []);
 
 function messages(namespace) {
   let current = config;
@@ -29,6 +41,7 @@ function messages(namespace) {
 }
 
 function translate(message, key, input) {
+  //TODO documentation
   try {
     let path = key.split(":");
     if (path.length != 2)
@@ -55,7 +68,12 @@ function translate(message, key, input) {
   }
 }
 
+/**
+ * Replies to a message. Old, but functional, code.
+ * I'm planning on making it *not* positively disgusting at some point.
+ */
 function reply() {
+  //TODO rewrite this entire function from the ground up
   let name;
   let context;
   let msg = arguments[1];
@@ -66,11 +84,8 @@ function reply() {
 
   if (msg.text)
     msg = msg.text;
-  if (arguments.length == 2 && !arguments[1].context) {
-    name = translate(arguments[0], "commands:running-unknown", context);
-  }
-  else if (arguments.length == 2 && arguments[1].context) {
-    if (arguments[1].context.input && arguments[1].context.input.commands)
+  if (arguments.length == 2) {
+    if (arguments[1].context && arguments[1].context.input && arguments[1].context.input.commands)
       name = translate(arguments[0], "commands:running", context);
     else
       name = translate(arguments[0], "commands:running-unknown", context);
@@ -121,7 +136,7 @@ function updateUser(data) {
     users.push(data);
   else
     users[index] = data;
-  jsonfile.writeFile("users.json", users, (err) => { console.log(err || "Successfully saved users."); });
+  fs.writeFile(usersFile, JSON.stringify(users, null, 4), "UTF8", (err) => { console.log(err || "Successfully saved users."); });
 }
 
 /**
@@ -442,6 +457,7 @@ function command(message) {
         "characters": characters,
         "magicitems": magicitems,
         "users": users,
+        "owners": owners,
         "config": config,
         "commands": commands,
         "client": client,

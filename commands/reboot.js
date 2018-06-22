@@ -1,7 +1,7 @@
 const namespace = "commands.reboot:";
 
 module.exports = (message, context, data) => {
-  if(context.user.id != "105038157061337088"){
+  if(!data.owners.includes(context.user.id)){
     data.addMessage(namespace + "no-permission");
     return true;
   }

@@ -1,6 +1,7 @@
 node_modules/
 characters.json
-login.json
+owner-ids.json
+admin-ids.json
 token.txt
 users.json
 # Logs

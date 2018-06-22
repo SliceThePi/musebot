@@ -66,5 +66,9 @@
         "name": "Dope of Discernment",
         "description": "A blunt that, when smoked, gives the user the ability to see what would have happened in the next two hours if they had not smoked the blunt.",
         "thumbnail": "https://cdn.discordapp.com/attachments/383693495275094053/450364704162971658/Dope_of_Discernment.png"
+    },
+    {
+        "name": "Richard's Fermented Cucumbers",
+        "description": "A jar of pickles with faces drawn on them in what looks to be Sharpie. After eating a pickle, your Intelligence stat is boosted by 2 (the effect does not stack). However, it takes a high Intelligence stat to be able to understand the effects of this item."
     }
 ]
